@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace CF_263A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //CF-263A: Beautiful Matix
+
+            int[,] matrix = new int[5, 5];
+
+            int count = 0;
+
+            for (var i = 0; i < matrix.GetLength(0); i++)
+            {
+                string[] num = Console.ReadLine().Split();
+
+                for (var j = 0; j < num.Length; j++)
+                {
+                    if (int.Parse(num[j]) == 1)
+                    {
+                        count = Math.Abs(i - 2) + Math.Abs(j - 2);
+                    }
+                }
+            }
+
+            Console.WriteLine(count);
+        }
+    }
+}

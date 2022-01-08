@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace CF_1399A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+
+            while(t > 0)
+            {
+                t--;
+                int n = int.Parse(Console.ReadLine());
+                string[] str = Console.ReadLine().Split();
+                List<int> arr = new List<int>();
+                for (var k = 0; k < n; k++)
+                {
+                    arr.Add(int.Parse(str[k]));
+                }
+
+                arr.Sort();
+
+                for (var i = 1; i < arr.Count; i++)
+                {
+                    int diff = arr[i] - arr[i - 1];
+
+                    if (diff <= 1)
+                    {
+                        arr.RemoveAt(i - 1);
+                        i--;
+                    }
+                }
+
+                if(arr.Count <= 1)
+                    Console.WriteLine("YES");
+                else
+                    Console.WriteLine("NO");
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿using System;
+using System.Linq;
+
+namespace CF_271A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int year = int.Parse(Console.ReadLine());
+
+            int temp = year + 1;
+
+            while(temp > year)
+            {
+                var x = temp.ToString().Distinct().ToArray();
+
+                if (x.Length == year.ToString().Length)
+                {
+                    Console.WriteLine(temp);
+                    break;
+                }
+                else
+                {
+                    temp += 1;
+                }
+            }
+        }
+    }
+}

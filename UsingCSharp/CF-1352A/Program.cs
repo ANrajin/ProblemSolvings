@@ -13,34 +13,30 @@ namespace CF_1352A
             while(t > 0)
             {
                 t--;
-                int k = 1;
                 StringBuilder _result = new StringBuilder();
-                double n = double.Parse(Console.ReadLine());
+                string n = Console.ReadLine();
 
-                if(n < 10 || (n/10) % 10 == 0)
+                int count = 0;
+                int k = n.Length - 1;
+                double x = double.Parse(n);
+
+                for(var i = 0; i < n.Length; i++)
                 {
-                    Console.Write($"{k}\n{n}\n");
-                }
-                else
-                {
-                    var l = Math.Floor(Math.Log10(n));
-                    double[] arr = n.ToString().Select(s => Convert.ToDouble(s.ToString())).ToArray();
-                    for (var i = 0; i < arr.Length; i++)
+                    double d = Convert.ToDouble(n[i].ToString());
+
+                    if(d > 0)
                     {
-                        var d = arr[int.Parse(i.ToString())];
-
-                        if ((n / 10) % 10 != 0 && d > 0)
-                        {
-                            var substract = Math.Pow(10, l) * d;
-                            n -= substract; k++;
-                            _result.Append($"{substract} ");
-                        }
-
-                        l--;
+                        d *= Math.Pow(10, k);
+                        count++;
+                        _result.Append($"{d} ");
                     }
 
-                    Console.Write($"{--k}\n{_result}\n");
+                    x -= d;
+                    k--;
                 }
+
+                Console.WriteLine(count);
+                Console.WriteLine(_result.ToString());
             }
         }
     }

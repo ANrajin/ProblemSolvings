@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace CF_723A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] str = Console.ReadLine().Split();
+
+            List<int> arr = str.Select(s => int.Parse(s)).ToList();
+
+            int min = arr[0];
+            int max = arr[0];
+
+            for(var i = 0; i < arr.Count; i++)
+            {
+                if (arr[i] > max)
+                    max = arr[i];
+
+                if (arr[i] < min)
+                    min = arr[i];
+            }
+
+            Console.WriteLine(max - min);
+        }
+    }
+}

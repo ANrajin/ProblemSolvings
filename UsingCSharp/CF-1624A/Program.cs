@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace CF_1624A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+
+            while(t > 0)
+            {
+                t--;
+                int n = int.Parse(Console.ReadLine());
+                string[] str = Console.ReadLine().Split();
+                List<int> arr = str.Select(s => int.Parse(s)).ToList();
+                int max = arr[0];
+                int min = arr[0];
+
+                for (var i = 0; i < n; i++)
+                {
+                    if (arr[i] > max)
+                        max = arr[i];
+                    if (arr[i] < min)
+                        min = arr[i];
+                }
+
+                Console.WriteLine(max - min);
+            }
+        }
+    }
+}

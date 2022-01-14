@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CF_490A
 {
@@ -7,33 +9,17 @@ namespace CF_490A
     {
         static void Main(string[] args)
         {
-            int t = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
             string[] str = Console.ReadLine().Split();
+            List<int> arr = str.Select(s => int.Parse(s)).ToList();
 
-            List<int> arr = new List<int>();
+            bool check = arr.Contains(1) && arr.Contains(2) && arr.Contains(3);
 
-            foreach(var s in str)
+            if(!check)
+                Console.WriteLine(0);
+            else
             {
-                arr.Add(int.Parse(s));
-            }
 
-            var team = Math.Floor((decimal)t / 3);
-
-            Console.WriteLine(team);
-
-            for(var i = 1; i <=team; i++)
-            {
-                int n = 1;
-
-                for(var j = 0; j < t; j++)
-                {
-                    if(arr.Contains(n) && arr[j] == n)
-                    {
-                        Console.Write($"{j + 1} ");
-                        arr.Remove(arr[i]);
-                        n++;
-                    }
-                }
             }
         }
     }

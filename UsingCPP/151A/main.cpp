@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int n, k, l, c, d, p, nl, np;
+
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+
+    vector<int> x;
+    x.push_back(k * l / nl);
+    x.push_back(c * d);
+    x.push_back(p / np);
+
+    int min = 0;
+
+    for (auto r : x)
+    {
+        if (min == 0 || r < min)
+            min = r;
+    }
+
+    cout << min / n;
+
+    return 0;
+}
